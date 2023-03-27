@@ -34,15 +34,15 @@ function CreateBtn (params){
     )
 }
 
-const renderAssignButton = function(params){
-    function openPopup(){
-        console.log(params.field)
-    }
+// const renderAssignButton = function(params){
+//     function openPopup(){
+//         console.log(params.field)
+//     }
 
-    return (
-            <btn></btn>
-    )
-}
+//     return (
+//             <btn></btn>
+//     )
+// }
 
 const columns = [
   { field: '이름', headerName: 'Name', width: 150},

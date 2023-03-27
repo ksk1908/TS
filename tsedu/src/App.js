@@ -21,7 +21,6 @@ import MailIcon from '@mui/icons-material/Mail';
 
 //pages
 import Table from './pages/Table'
-import SimpleDialogDemo from './admin/components/Dialog'
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -96,7 +95,8 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Persistent drawer
+            {/* 타이틀 */}
+            티쳐스스쿨
           </Typography>
         </Toolbar>
       </AppBar>
@@ -120,7 +120,7 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['신청수업관리', '진행수업관리', '종강수업관리', '홀드수업관리'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -131,7 +131,8 @@ export default function PersistentDrawerLeft() {
             </ListItem>
           ))}
         </List>
-        <Divider />
+        {/* 구분선 */}
+        <Divider /> 
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding>
