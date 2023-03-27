@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Table from './Table';
+import Table from './Table-FixedHeader';
 
 function Content() {
   return (

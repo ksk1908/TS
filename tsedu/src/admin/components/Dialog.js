@@ -2,27 +2,42 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
+// import DialogActions from '@mui/material/DialogActions';
 import Dialog from '@mui/material/Dialog';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+
+//component
+import FixedSizeList from './List-FixedSize';
+import TableFixedHeader from './Table-FixedHeader';
+import Card from './Card';
+//CSS
+import './Dialog.css';
+import { Divider } from '@mui/material';
+
+const Div = styled('div')(({ theme }) => ({
+  ...theme.typography.button,
+  backgroundColor: theme.palette.background.paper,
+  padding: theme.spacing(2),
+}));
+
+function TypographyTheme(props) {
+  return (
+    <>
+      <Div>{props.text}</Div> 
+      <Divider style={{margin:"0px 15px"}}/>
+    </>
+  )
+}
+
 
 export default function SimpleDialog(props) {
     
   const { onClose, open } = props;
-
   const handleClose = () => {
     onClose();
-  };
-
-  const handleListItemClick = (value) => {
-    onClose(value);
   };
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : 'gray',
@@ -39,36 +54,30 @@ export default function SimpleDialog(props) {
         maxWidth="lg"
         padding = {10}
     >
-        <DialogTitle>수업 {props.title}</DialogTitle>
-        <DialogContent style={{paddingTop:20}}>
-
-            <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2}>
+        <DialogTitle className='dialog-header'>{"수업 "+props.title}</DialogTitle>
+        <DialogContent className='dialog-body'>
+            <Box sx={{ flexGrow: 1 }} style={{paddingTop:20}}>
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                      <Card></Card>
+                    </Grid> 
+                </Grid>
+            </Box>
+            <Box sx={{ flexGrow: 1 }} style={{paddingTop:20}}>
+                <Grid container spacing={3}>
                     <Grid item xs={3}>
-                    <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label" style={{backgroundColor:'white', paddingRight : 6}}>스케줄</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        // value={age}
-                        label="Age"
-                        // onChange={handleChange}
-                    >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                    </FormControl>
+                    <TypographyTheme className="item-label" text="Class Time">수업시간</TypographyTheme>
+                    {/* <ComboBox></ComboBox> */}
+                    <FixedSizeList></FixedSizeList>
                     </Grid>
                     <Grid item xs={3}>
-                    <Item>강사</Item>
+                    <TypographyTheme className="item-label"  text="Teacher">강사</TypographyTheme>
+                    <FixedSizeList></FixedSizeList>
                     </Grid>
-                    <Grid item xs={3}>
-                    <Item>스케줄 상세</Item>
-                    </Grid>
-                    <Grid item xs={3}>
-                    <Item>배정 확정</Item>
-                    </Grid>
+                    <Grid item xs={6}>
+                    <TypographyTheme className="item-label" text="Schedule">스케줄 상세</TypographyTheme>
+                    <TableFixedHeader></TableFixedHeader>
+                    </Grid> 
                 </Grid>
             </Box>
         </DialogContent>
