@@ -7,7 +7,6 @@ import Dialog from '@mui/material/Dialog';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
 
 //component
 import FixedSizeList from './List-FixedSize';
@@ -39,13 +38,13 @@ export default function SimpleDialog(props) {
   const handleClose = () => {
     onClose();
   };
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : 'gray',
-    ...theme.typography.body2,
-    padding: theme.spacing(3),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
+  // const Item = styled(Paper)(({ theme }) => ({
+  //   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : 'gray',
+  //   ...theme.typography.body2,
+  //   padding: theme.spacing(3),
+  //   textAlign: 'center',
+  //   color: theme.palette.text.secondary,
+  // }));
   return (
     <Dialog 
         onClose={handleClose} 
