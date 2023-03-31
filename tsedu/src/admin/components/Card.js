@@ -31,8 +31,8 @@ export default function BasicCard() {
 
                 </CardContent>
             </Grid>
-            <Grid item xs={1}>
-                <CardActions style={{justifyContent:'right'}}>
+            <Grid item xs={1} style={{alignSelf:'center'}}>
+                <CardActions style={{justifyContent:'center'}}>
                     <Button variant="contained">배정</Button>
                 </CardActions>
             </Grid>

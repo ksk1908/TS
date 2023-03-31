@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import DialogTitle from '@mui/material/DialogTitle';
+// import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 // import DialogActions from '@mui/material/DialogActions';
 import Dialog from '@mui/material/Dialog';
@@ -12,6 +12,7 @@ import { styled } from '@mui/material/styles';
 import FixedSizeList from './List-FixedSize';
 import TableFixedHeader from './Table-FixedHeader';
 import Card from './Card';
+import DialogTitleClose from './DialogTitleClose'
 //CSS
 import './Dialog.css';
 import { Divider } from '@mui/material';
@@ -38,13 +39,6 @@ export default function SimpleDialog(props) {
   const handleClose = () => {
     onClose();
   };
-  // const Item = styled(Paper)(({ theme }) => ({
-  //   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : 'gray',
-  //   ...theme.typography.body2,
-  //   padding: theme.spacing(3),
-  //   textAlign: 'center',
-  //   color: theme.palette.text.secondary,
-  // }));
   return (
     <Dialog 
         onClose={handleClose} 
@@ -53,7 +47,7 @@ export default function SimpleDialog(props) {
         maxWidth="lg"
         padding = {10}
     >
-        <DialogTitle className='dialog-header'>{"수업 "+props.title}</DialogTitle>
+        <DialogTitleClose  onClose={handleClose} className='dialog-header'>{"수업 "+props.title}</DialogTitleClose>
         <DialogContent className='dialog-body'>
             <Box sx={{ flexGrow: 1 }} style={{paddingTop:20}}>
                 <Grid container spacing={3}>

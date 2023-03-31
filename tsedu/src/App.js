@@ -19,8 +19,11 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
+
+
 //pages
 import Table from './pages/Table'
+import FullCalendarDemo from './pages/FullCalendar'
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -68,7 +71,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function PersistentDrawerLeft() {
+export default function App() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -131,26 +134,15 @@ export default function PersistentDrawerLeft() {
             </ListItem>
           ))}
         </List>
-        {/* 구분선 */}
-        <Divider /> 
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
+
+
+      {/* 메인 컨텐츠 영역 */}
       <Main open={open}>
         <DrawerHeader/>
         <Table></Table>
+        <FullCalendarDemo></FullCalendarDemo>
       </Main>
-      {/* <SimpleDialogDemo></SimpleDialogDemo> */}
     </Box>
   );
 }
