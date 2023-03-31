@@ -1,4 +1,20 @@
+.dialog-header {
+    background-color: #0088D1;
+}
+
+.dialog-body {
+    background-color: #DEF1FF;
+}
+
+
+
 .dialog-label-A {
     background-color :'white' !important;
     padding-right : 6 !important;
+}
+
+.item-label {
+    margin-bottom: 10px;
+    height: 40px;
+    vertical-align: middle;
 }
