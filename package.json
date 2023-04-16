@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
   },
   "name": "ts",
   "version": "1.0.0",
   "description": "ts 프로젝트 노드 서버",
   "main": "server.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: 아 에러유?\" && exit 1"
   },
